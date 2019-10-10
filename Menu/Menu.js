@@ -9,6 +9,50 @@ let menuItems = [
   'Log Out'
 ];
 
+
+const menuCreator = (array) => {
+
+  const menu = document.createElement('div');
+  const unList = document.createElement('ul');
+  const menuButt = document.querySelector('.menu-button');
+  
+
+
+array.forEach((i) => {
+  const listedItems = document.createElement('li');
+  listedItems.textContent = i;
+  unList.appendChild(listedItems); 
+}
+)
+
+menu.classList.add('menu');
+
+menuButt.addEventListener('click', () => {
+menu.classList.toggle('menu--open');
+});
+
+menuButt.appendChild(menu);
+menu.appendChild(unList);
+
+
+return menu;
+
+}
+
+const navMenu = document.querySelector('.header');
+
+navMenu.appendChild(menuCreator(menuItems));
+
+
+
+// const menus = document.querySelector('.menu-button');
+  
+// menuItems.forEach((item, i) => {
+// menus.appendChild(menuCreator(item[i]))
+// }
+// );
+
+
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:
@@ -21,12 +65,16 @@ let menuItems = [
 
   The function takes an array as its only argument.
 
-  Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
+  Step 2: Inside this function, iterate over the array creating a list item <li> element 
+  for each item in the array. 
   Add those items to the <ul>
 
-  Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
+  Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button')
+   currently on the DOM.
 
-  Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+  Step 4: add a click event listener to the menu button. 
+  When clicked it should toggle the class 'menu--open' 
+  on the menu (your div with a 'menu' class).
 
   Step 5: return the menu component.
 

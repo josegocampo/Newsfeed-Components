@@ -85,8 +85,75 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'I am trying not to suck at JS',
+    date: 'Oct 10th, 2019',
+    firstParagraph: `I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. 
+    I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. 
+    I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. I will not suck. 
+    I will not suck? I will not suck?? I will not suck??? I will not suck???? I will not suck????? `,
+
+    secondParagraph: `I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. 
+    I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. 
+    I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. I will suck. 
+    I will suck. I will suck? I will suck?? I will suck?? I will suck?? WILL I ???     `,
+
+    thirdParagraph: `Now I wont. Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  
+    Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  
+    Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  
+    Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  Now I wont.  WONT I? `
   }
 ];
+
+
+const articleCreator = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
+const article = document.createElement('div');
+const tittleH2 = document.createElement('h2');
+const datee = document.createElement('p');
+const para1 = document.createElement('p');
+const para2 = document.createElement('p');
+const para3 = document.createElement('p');
+const expandButt = document.createElement('span');
+
+
+article.classList.add('article');
+tittleH2.classList.add('h2');
+datee.classList.add('date');
+expandButt.classList.add('expandButton');
+
+tittleH2.textContent = title;
+datee.textContent = date;
+para1.textContent = firstParagraph;
+para2.textContent = secondParagraph;
+para3.textContent = thirdParagraph;
+expandButt.textContent = 'click me plox';
+
+
+
+expandButt.addEventListener('click', () => {
+ article.classList.toggle('article-open');
+});
+
+
+article.appendChild(tittleH2);
+article.appendChild(datee);
+article.appendChild(para1);
+article.appendChild(para2);
+article.appendChild(para3);
+article.appendChild(expandButt);
+
+return article;
+}
+
+
+const articles = document.querySelector('.articles');
+
+
+data.forEach((datos) => {
+  articles.appendChild(articleCreator(datos.title, datos.date, datos.firstParagraph, datos.secondParagraph, datos.thirdParagraph));
+});
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
